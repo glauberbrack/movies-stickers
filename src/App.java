@@ -23,10 +23,17 @@ public class App {
         List<Map<String, String>> moviesList = parser.parse(body);
 
         for (Map<String, String> movie: moviesList) {
-            System.out.println(movie.get("title"));
-            System.out.println(movie.get("image"));
-            System.out.println(movie.get("imDbRating"));
-            System.out.println("");
+            double averageRating = Double.parseDouble((movie.get("imDbRating")))/2;
+
+            System.out.println("\u001b[1mTitle: \u001b[m" + movie.get("title"));
+            System.out.println("\u001b[1mPoster: \u001b[m" +movie.get("image"));
+            System.out.print("\u001b[1mRating: \u001b[m" +movie.get("imDbRating"));
+            System.out.print(" ");
+            for(int iterator = 1; iterator <= averageRating; iterator++ ) {
+                System.out.print("⭐️");
+            }
+            System.out.print("\n");
+            
         }
     }
 }
